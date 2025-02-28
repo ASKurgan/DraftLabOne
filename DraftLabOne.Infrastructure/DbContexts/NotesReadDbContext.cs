@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DraftLabOne.Infrastructure.ReadModels;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,12 @@ namespace DraftLabOne.Infrastructure.DbContexts
             _configuration = configuration;
         }
 
-        
 
+        public DbSet<NoteReadModel> NoteReads => Set<NoteReadModel>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("PostgreSQL");
+            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("PostgreSQL"));
 
            // optionsBuilder.UseSnakeCaseNamingConvention();
 
