@@ -20,4 +20,9 @@
     <ProjectReference Include="..\DraftLabOne.Domain\DraftLabOne.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Notes\GetNote\" />
+    <Folder Include="Queries\Notes\GetNotes\" />
+  </ItemGroup>
+
 </Project>
