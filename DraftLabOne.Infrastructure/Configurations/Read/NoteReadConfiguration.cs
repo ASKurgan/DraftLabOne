@@ -1,4 +1,5 @@
-﻿using DraftLabOne.Infrastructure.ReadModels;
+﻿using DraftLabOne.Domain.Entities;
+using DraftLabOne.Infrastructure.ReadModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -13,7 +14,8 @@ namespace DraftLabOne.Infrastructure.Configurations.Read
     {
         public void Configure(EntityTypeBuilder<NoteReadModel> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Note");
+            builder.HasKey(n => n.Id);
         }
     }
 }

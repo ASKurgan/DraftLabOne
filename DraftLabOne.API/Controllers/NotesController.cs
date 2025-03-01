@@ -27,6 +27,18 @@ namespace DraftLabOne.API.Controllers
             return Ok(response.Value);
         }
 
-       
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] GNBSRequest request, 
+                                             [FromServices] GNBSQuery handler,
+                                             CancellationToken ct)
+        {
+            var responseResult = await handler.Handle(request, ct);
+            if (responseResult.IsFailure)
+                return BadRequest(responseResult.Error);
+
+            var result = responseResult.Value;
+
+            return Ok(result);
+        }
     }
 }

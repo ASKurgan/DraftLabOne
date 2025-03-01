@@ -2,6 +2,7 @@
 using DraftLabOne.Application.Interfaces.DataAccess;
 using DraftLabOne.Infrastructure.DbContexts;
 using DraftLabOne.Infrastructure.Providers;
+using DraftLabOne.Infrastructure.Queries.Notes.GetNotesBySelector;
 using DraftLabOne.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +22,7 @@ namespace DraftLabOne.Infrastructure
             services.AddDataStorages(configuration);
             services.AddRepositories();
             services.AddInterceptors();
-            // services.AddQueries();
+            services.AddQueries();
             return services;
         }
 
@@ -49,6 +50,11 @@ namespace DraftLabOne.Infrastructure
             return services;
         }
 
-      
+        private static IServiceCollection AddQueries (this IServiceCollection services)
+        {
+            services.AddScoped<GNBSQuery>();
+
+            return services;
+        }
     }
 }

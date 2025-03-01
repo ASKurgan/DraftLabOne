@@ -46,6 +46,7 @@ namespace DraftLabOne.Infrastructure.Queries.Notes.GetNotesBySelector
                 .Select(n => new NoteDto(n.Id, n.Title, n.Description, n.CreatedAt))
                 .ToListAsync(ct);
 
+           // return noteDtos;
             return new GetNotesResponse(noteDtos);
         }
     }
