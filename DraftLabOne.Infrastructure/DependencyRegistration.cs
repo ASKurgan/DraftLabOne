@@ -31,6 +31,7 @@ namespace DraftLabOne.Infrastructure
         {
             services.AddScoped<ITransaction, Transaction>();
             services.AddScoped<NotesWriteDbContext>();
+            services.AddScoped<NotesReadDbContext>();
             return services;
         }
 

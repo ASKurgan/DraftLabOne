@@ -1,7 +1,11 @@
 ﻿using DraftLabOne.API.Note.CreateNote;
+using DraftLabOne.Application.Dtos;
 using DraftLabOne.Application.Features.NoteFolder.CreateNote;
+using DraftLabOne.Infrastructure.DbContexts;
+using DraftLabOne.Infrastructure.Queries.Notes.GetNotesBySelector;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace DraftLabOne.API.Controllers
 {
@@ -22,5 +26,7 @@ namespace DraftLabOne.API.Controllers
             var response = await handler.Handle(noteCommand, ct);
             return Ok(response.Value);
         }
+
+       
     }
 }

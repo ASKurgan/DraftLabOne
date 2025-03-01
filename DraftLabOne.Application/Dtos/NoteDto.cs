@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace DraftLabOne.Application.Dtos
 {
-    public record NoteDto(long Id, string Title, string Description, DateTime CreatedAt);
+    public record NoteDto(long Id, string Title, string Description, DateTimeOffset CreatedAt);
 }
